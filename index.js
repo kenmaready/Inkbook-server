@@ -13,6 +13,9 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use("/posts", postRoutes);
+app.get("/", (req, res) => {
+    res.json({ success: true, message: "Welcome to Inkbook API." });
+});
 
 app.listen(PORT, () => {
     console.log("Inkbook server is listening on port", PORT);
