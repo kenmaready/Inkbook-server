@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import db from "./utils/db.js";
 import postRoutes from "./routes/posts.js";
+import userRoutes from "./routes/user.js";
 dotenv.config();
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use("/posts", postRoutes);
+app.use("/user", userRoutes);
 app.get("/", (req, res) => {
     res.json({ success: true, message: "Welcome to Inkbook API." });
 });
